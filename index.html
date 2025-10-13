@@ -2,13 +2,10 @@
 
 <head>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Jquery library   ---->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
@@ -26,9 +23,7 @@
                     document.title = "JavaScript Basic -- In class practice -- Elisha McCanick";
                     // use document.write to display a message
                     
-                    // use console.log to display a message   
-                  
-                    
+                    // use console.log to display a message
                 </script>
             </p>
             <p> Please import external file hello.js here. 
@@ -39,32 +34,54 @@
         <div class="practice">
             <h1> Variable and Arithemetic Operation</h1>
             <p> Practice on variables </p>
+            <script>
+                var a = 19.10;
+                var b = a + 10;
+                var c = b - a;
+                var d = 17.04;
 
+                document.writeln(a + " + " + c + " = " + b);
+                document.writeln(typeof d);
+            </script>
 
         </div>
 
         <div class="practice">
             <h1> JavaScript Escape Sequence</h1>
             <p> Write an image to the page </p>
-
+            <script>
+                document.write("<img src=\"img/die1.png\" alt=\"die 1\">");
+            </script>
             <p> Write a table to the page </p>
-
+            <script>
+                document.writeln("<table border=\"1\"> <tr> <td>1<td> </tr> </table>");
+            </script>
         </div>
 
         <div class="practice">
             <h1>Window and Document Object </h1>
             <p> Try alert, open, location, url </p>
             <script>
-
+                document.writeln("The doc is modified on " + document.lastModified);
+                /* window.open("https://www.youtube.com")*/
+                /* window.location.assign("https://www.google.com")*/
             </script>
 
         </div>
 
         <div class="practice">
             <h1> Get textcontent of an element </h1>
-            <p>Perform arithmetic operation on <span id="num1"> 4 </span> and <span id="num2">5 </span> </p>
+            <p>Perform arithmetic operation on <span id="num1"> 4 </span> and <span id="num2"> 5 </span> </p>
             <p>Result:
-                <script src="js/arith.js"></script>
+                <script>
+                    const SE1 = document.getElementById("num1");
+                    const n1 = parseInt(SE1.textContent);
+
+                    const SE2 = document.getElementById("num2");
+                    const n2 = parseInt(SE2.textContent);
+
+                    console.log("n1: " + n1 + "\n n2: " + n2);
+                </script>
             </p>
 
         </div>
@@ -74,8 +91,12 @@
             <p id="p1"> Paragraph Number One </p>
             <p id="p2"> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
-            <p>Please write JavaScript code to change the content of each paragraph.​
-            <p>
+            <p>Please write JavaScript code to change the content of each paragraph.​</p>
+            <script>
+                const pE = document.querySelector('#p1');
+                console.log(pE);
+                document.getElementById('p2').textContent="<i>great</i>";
+            </script>
 
 
         </div>
