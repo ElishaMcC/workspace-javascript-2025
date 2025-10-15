@@ -106,25 +106,35 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
+                    const CE1 = document.getElementsByName("addnum1")[0];
+                    const CE2 = document.getElementsByName("addnum2")[0];
 
+                    var CI1 = parseInt(CE1.value);
+                    var CI2 = parseInt(CE2.value);
+
+                    var res = (CI1 + CI2);
+
+                    document.getElementById("result").textContent =  res;
 
                 }
             </script>
-            <p> <input type="text" name="addnum1" /> + <input type="text" name="num2">
+            <p> <input type="text" name="addnum1" /> + <input type="text" name="addnum2">
                 <input type="button" value="=" onclick="calculate();">
-                <label id="result"> ? </label>
+                <label id="result">?</label>
             </p>
 
         </div>
 
         <div class="practice">
             <h1>JavaScript Events - blur -addEventListener </h1>
+            
             <form>
                 <p>
                     <label> Name:
                         <input type="text" id="cName">
                     </label>
                 </p>
+
 
                 <p id="message">
 
@@ -135,6 +145,21 @@
                         <input type="text" id="cEmail">
                     </label>
                 </p>
+
+                <script>
+                    
+                    const nameS = document.getElementById("cName");
+                    nameS.addEventListener("blur", OnBlur, false);
+                    nameS.addEventListener("click", OnClick, false)
+                    const messageS = document.getElementById("message");
+                    function OnBlur(){
+                        alert(nameS.value + "?");
+                        messageS.textContent = "no";
+                    }
+                    function OnClick(){
+                        messageS.textContent = "Gimme your name";
+                    }
+                </script>
             </form>
 
         </div>
@@ -142,8 +167,18 @@
         <div class="practice">
             <h1> Practice - Calculate Square</h1>
             Calculating Square:
-            <input type="text" id="squarenum" placeholder="Type in a number"> <sup> 2 </sup> =
+            <input type="text" id="squarenum" placeholder="Type in a number"> <sup>2</sup> =
             <label id="squareresult"> ? </label>
+            <script>
+                const sqrNum = document.getElementById("squarenum");
+                const sqrRes = document.getElementById("squareresult");
+                sqrNum.addEventListener("change", SqrChange, false);
+                function SqrChange(){
+                    var gotFloat = parseFloat(sqrNum.value);
+                    var squared = gotFloat*gotFloat;
+                    sqrRes.textContent = squared;
+                }
+            </script>
 
         </div>
 
@@ -151,16 +186,22 @@
             <h1> Difference between textcontent and innerHTML</h1>
             <p> HTML Try it Editor </p>
             <p>ENTER your code </p>
-            <textarea cols="40" rows="20" id="code">  
-
+            <textarea cols="40" rows="20" id="code">
             </textarea>
 
             <input type="button" id="tryit" value="Click and Display"> 
 
-            <div id="innerHTMLmessage"> 
+            <div id="innerHTMLmessage">
             </div>
-
-
+            <script>
+                const codeEl = document.getElementById("code");
+                const confirm = document.getElementById("tryit");
+                confirm.addEventListener("click", onConf, false);
+                function onConf(){
+                    const userCode = codeEl.value;
+                    document.getElementById("innerHTMLmessage").innerHTML = userCode;
+                }
+            </script>
         </div>
 
         <div class="practice">
@@ -178,8 +219,13 @@
                 </select>.</p>
 
             <p id="price">
-
             </p>
+
+            <script>
+                const
+                if(){
+                }
+            </script>
 
             <script type="text/javascript">
 
