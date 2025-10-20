@@ -34,6 +34,7 @@
         <div class="practice">
             <h1> Variable and Arithemetic Operation</h1>
             <p> Practice on variables </p>
+            <span id="count">12</span>
             <script>
                 var a = 19.10;
                 var b = a + 10;
@@ -172,11 +173,15 @@
             <script>
                 const sqrNum = document.getElementById("squarenum");
                 const sqrRes = document.getElementById("squareresult");
-                sqrNum.addEventListener("change", SqrChange, false);
+                sqrNum.addEventListener("blur", SqrChange, false);
                 function SqrChange(){
+                    if(isNaN(sqrNum.value)){
+                        alert(sqrNum.value + " is not a number, try again")
+                    }else{
                     var gotFloat = parseFloat(sqrNum.value);
                     var squared = gotFloat*gotFloat;
                     sqrRes.textContent = squared;
+                    }
                 }
             </script>
 
@@ -222,17 +227,23 @@
             </p>
 
             <script>
-                const
-                if(){
+                const cond = document.getElementById("condition");
+                const yr = document.getElementById("year");
+                const out = document.getElementById("price");
+                var price = 5000;
+                cond.addEventListener("change", pricecon, false);
+                yr.addEventListener("change", pricecon, false);
+                function pricecon(){
+                    price = 5000;
+                    if(cond.value == "Fair"){
+                    price = price * .80;
+                    }
+                    if(yr.value == 2003){
+                        price = price * .90;
+                    }
+                    out.textContent = ("$" + price);
                 }
             </script>
-
-            <script type="text/javascript">
-
-
-
-            </script>
-
         </div>
 
         <div class="practice">
@@ -240,18 +251,43 @@
             <p> Choose your favorite theme(warm, cool, hot)
                 <input type="text" id="theme">
             </p>
-
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                const themeC = document.getElementById("theme");
+                var x;
+                
+                function check(){
+                    switch (themeC.value.trim().toLowerCase()){
+                        case "warm":
+                            themeC.style.backgroundColor = 'yellow';
+                            document.body.style.backgroundColor = 'pink';
+                            break;
+                        case "cool":
+                            themeC.style.backgroundColor = 'blue';
+                            document.body.style.backgroundColor = 'green';
+                            break;
+                        case "hot":
+                            themeC.style.backgroundColor = 'red';
+                            document.body.style.backgroundColor = 'orange';
+                            break;
+                        default:
+                            alert("Input does not match 'cool', 'warm', or 'hot'");
+                            break;
+                    }
+                }
+                themeC.addEventListener("blur", check, false);
+            });
+            </script>
         </div>
 
 
 
         <div class="practice">
             <h1> Switch practice -- Insurance Application</h1>
-            <p> Choose your coverage
+            > Choose your coverage
                 <input type="radio" name="coverage" value="100000">100000
                 <input type="radio" name="coverage" value="200000">200000
                 <input type="radio" name="coverage" value="300000">300000
-
             </p>
             <p> Choose your age group.
                 <select id="agegroup">
@@ -269,7 +305,10 @@
             <p id="premiumresult">
 
             </p>
-
+            <script>
+                const age = document.getElementById("agegroup").selectedIndex;
+                const cov = document.querySelector("input{coverage}lchecked").value;
+            </script>
         </div>
 
 
