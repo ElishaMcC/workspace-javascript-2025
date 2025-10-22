@@ -176,7 +176,7 @@
                 sqrNum.addEventListener("blur", SqrChange, false);
                 function SqrChange(){
                     if(isNaN(sqrNum.value)){
-                        alert(sqrNum.value + " is not a number, try again")
+                        alert(sqrNum.value + " is not a number, try again");
                     }else{
                     var gotFloat = parseFloat(sqrNum.value);
                     var squared = gotFloat*gotFloat;
@@ -295,19 +295,39 @@
                     <option> 30-34 </option>
                     <option> 35-39</option>
                     <option> 40-44 </option>
-
                 </select>
 
             </p>
             <p>
-                <input type="button" value="Check Premium">
+                <input type="button" value="Check Premium" id="CP">
             </p>
             <p id="premiumresult">
 
             </p>
             <script>
-                const age = document.getElementById("agegroup").selectedIndex;
-                const cov = document.querySelector("input{coverage}lchecked").value;
+                function checkPremium(){
+                    const age = document.getElementById("agegroup").selectedIndex;
+                    const cov = document.querySelector("input[name='coverage']:checked").value;
+                    var cost = 0;
+                    switch(age){
+                        case 0:
+                            cost = (cov / 1000) * .08;
+                            break;
+                        case 1:
+                            cost = (cov / 1000) * .09;
+                            break;
+                        case 2:
+                            cost = (cov / 1000) * .11;
+                            break;
+                        case 3:
+                            cost = (cov / 1000) * .17;
+                            break;
+                    }
+                res.textContent = ("Your monthly cost is $" + cost);
+                }
+                const check = document.getElementById("CP");
+                const res = document.getElementById("premiumresult");
+                check.addEventListener("click", checkPremium, false);
             </script>
         </div>
 
@@ -322,6 +342,18 @@
                 <input type="button" value="Click for Square">
             </p>
 
+            <script>
+                function forSquare(){
+                    const num = document.getElementById("inputnumber1").value;
+                    var finalNum = 0;
+                    for(var i = 1; i <= num;i++){
+                        finalNum = finalNum + i;
+                    }
+                    alert("Square is " + finalNum);
+                }
+                const square = document.querySelector("input[value='Click for Square']");
+                square.addEventListener("click", forSquare, false);
+            </script>
         </div>
 
 
@@ -335,10 +367,20 @@
 
             <!-- output section -->
             <div id="loopoutput">
-
-
             </div>
-
+            <script>
+                function tableLoop(){
+                    const num = document.getElementById("inputnumber2").value;
+                    var out = "";
+                    for(var i = 0; i<= 10 ; i++){
+                        out = out + (num + " × " + i + " = " + num * i + "\n");
+                    }
+                    output.textContent = out;
+                }
+                const output = document.getElementById("loopoutput");
+                const but = document.querySelector("input[value='Click for multiplication table']");
+                but.addEventListener("click", tableLoop, false);
+            </script>
         </div>
 
 
